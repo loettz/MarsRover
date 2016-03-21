@@ -27,39 +27,32 @@ public class MarsRover {
 	}
 	
 	public void turnRight() {
-		if (direction == Direction.NORTH) {
-			setDirection(Direction.EAST);
-		} else if (direction == Direction.EAST) {
-			setDirection(Direction.SOUTH);
-		} else if (direction == Direction.SOUTH) {
-			setDirection(Direction.WEST);
-		} else if (direction == Direction.WEST) {
-			setDirection(Direction.NORTH);
+		switch(direction) {
+		case NORTH: setDirection(Direction.EAST);
+		case EAST: setDirection(Direction.SOUTH);
+		case SOUTH: setDirection(Direction.WEST);
+		case WEST: setDirection(Direction.NORTH);
 		}
 	}
 	
 	public void turnLeft() {
-		if (direction == Direction.NORTH) {
-			setDirection(Direction.WEST);
-		} else if (direction == Direction.EAST) {
-			setDirection(Direction.NORTH);
-		} else if (direction == Direction.SOUTH) {
-			setDirection(Direction.EAST);
-		} else if (direction == Direction.WEST) {
-			setDirection(Direction.SOUTH);
+		switch(direction) {
+		case NORTH: setDirection(Direction.WEST);
+		case EAST: setDirection(Direction.NORTH);
+		case SOUTH: setDirection(Direction.EAST);
+		case WEST: setDirection(Direction.SOUTH);
 		}
 	}
 	
 	public void move() {
-		if (direction == Direction.NORTH) {
-			// y+1
-		} else if (direction == Direction.EAST) {
-			// x+1
-		} else if (direction == Direction.SOUTH) {
-			// y-1
-		} else if (direction == Direction.WEST) {
-			// x-1
+		
+		switch(direction) {
+		case NORTH: // y+1
+		case EAST: //x+1
+		case SOUTH: //y-1
+		case WEST: // x-1
 		}
+
 	}
 
 }
