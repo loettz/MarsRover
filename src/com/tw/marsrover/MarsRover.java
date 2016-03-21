@@ -2,9 +2,6 @@ package com.tw.marsrover;
 
 public class MarsRover {
 	
-	public enum Direction {
-		NORTH, SOUTH, EAST, WEST
-	}
 	
 	private Location location;
 	
@@ -27,21 +24,11 @@ public class MarsRover {
 	}
 	
 	public void turnRight() {
-		switch(direction) {
-		case NORTH: setDirection(Direction.EAST);
-		case EAST: setDirection(Direction.SOUTH);
-		case SOUTH: setDirection(Direction.WEST);
-		case WEST: setDirection(Direction.NORTH);
-		}
+		setDirection(Direction.getNext(direction));
 	}
 	
 	public void turnLeft() {
-		switch(direction) {
-		case NORTH: setDirection(Direction.WEST);
-		case EAST: setDirection(Direction.NORTH);
-		case SOUTH: setDirection(Direction.EAST);
-		case WEST: setDirection(Direction.SOUTH);
-		}
+		setDirection(Direction.getPrevious(direction));
 	}
 	
 	public void move() {

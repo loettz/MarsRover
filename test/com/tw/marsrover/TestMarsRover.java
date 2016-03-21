@@ -2,9 +2,10 @@ package com.tw.marsrover;
 
 import static org.junit.Assert.*;
 
+
 import org.junit.Test;
 
-import com.tw.marsrover.MarsRover.Direction;
+
 
 public class TestMarsRover {
 	
