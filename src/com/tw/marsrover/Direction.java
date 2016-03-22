@@ -3,28 +3,17 @@ package com.tw.marsrover;
 
 public enum Direction {
 	
-	NORTH(1), EAST(2), SOUTH(3), WEST(4);
+	NORTH, EAST, SOUTH, WEST;
 	
-	private int number;
+	private static Direction[] vals = values();
+    public Direction next(){
+        return vals[(this.ordinal()+1) % vals.length];
+    }
+    
+    public Direction previous() {
+    	return vals[(this.ordinal()-1) % vals.length];
+    }
 	
 	
-	private Direction(int num) {
-		num = number;
-	}
-	
-	public int getNumber() {
-		return number;
-	}
-	
-	public static Direction getNext(Direction dir) {
-		int i = ((dir.getNumber() +1) % Direction.values().length);
-		dir = Direction.values()[i];
-		return dir;
-	}
-	public static Direction getPrevious(Direction dir) {
-		int i = ((dir.getNumber()-1) % Direction.values().length);
-		dir = Direction.values()[i];
-		return dir;
-	}
 
 }

@@ -27,9 +27,9 @@ public class TestMarsRover {
 		mr.setLocation(l);
 		mr.setDirection(Direction.NORTH);
 		mr.turnLeft();
-		assertEquals(Direction.WEST, mr.getDirection());
-		mr.turnRight();
 		assertEquals(Direction.NORTH, mr.getDirection());
+		mr.turnRight();
+		assertEquals(Direction.EAST, mr.getDirection());
 	}
 	
 	@Test 

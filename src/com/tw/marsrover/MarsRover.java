@@ -24,11 +24,11 @@ public class MarsRover {
 	}
 	
 	public void turnRight() {
-		setDirection(Direction.getNext(direction));
+		setDirection(direction.next());
 	}
 	
 	public void turnLeft() {
-		setDirection(Direction.getPrevious(direction));
+		setDirection(direction.previous());
 	}
 	
 	public void move() {
