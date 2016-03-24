@@ -46,10 +46,6 @@ public class MarsRover {
 		setDirection(direction.previous());
 	}
 	
-	public boolean isMoveable(Plateau p) {
-		Location l = location.potentialNextLocation(direction);
-		return p.inBounds(l);
-	}
 	
 	public void move() {
 		if (!(possibleMoves() <= 0) ){

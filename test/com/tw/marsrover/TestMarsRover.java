@@ -65,15 +65,5 @@ public class TestMarsRover {
 		
 	}
 	
-	@Test
-	public void testIsRoverMoveable() {
-		Location loc = new Location(0,0);
-		Plateau p = new Plateau(5, 5);
-		MarsRover mr = new MarsRover(loc, Direction.EAST, p);
-		Location l = mr.getLocation();
-		Location newl = l.potentialNextLocation(mr.getDirection());
-		assertEquals(p.inBounds(newl), mr.isMoveable(p));
-		
-	}
 
 }

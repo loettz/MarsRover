@@ -23,24 +23,7 @@ public class Location {
 	public int getY() {	
 		return y;
 	}
-	
-	public Location potentialNextLocation(Direction dir) {
-		int x = this.x;
-		int y = this.y;
-		switch(dir) {
-		case NORTH: y = (y +1);
-		break;
-		case EAST: x = (x +1);
-		break;
-		case SOUTH: y = (y -1);
-		break;
-		case WEST: x = (x -1);
-		break;
-		}
-		Location pLoc = new Location(x, y);
-		return pLoc;
-		
-	}
+
 	
 	@Override
 	public boolean equals(Object o) {

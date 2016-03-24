@@ -24,11 +24,4 @@ public class Plateau {
 		return upperRightCoordinates;
 	}
 	
-	public boolean inBounds(Location l) {
-		if (l.getX() < 0 || l.getX() > this.upperRightX) return false;
-		if (l.getY() < 0 || l.getY() > this.upperRightY) return false;
-		return true;
-		
-	}
-
 }
