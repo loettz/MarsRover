@@ -1,11 +1,45 @@
 package com.tw.marsrover;
 
 public class Location {
-	int x;
-	int y;
+	private int x;
+	private int y;
 	public Location(int x, int y) {
 		this.x = x;
 		this.y = y;
+	}
+	
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getX() {	
+		return x;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public int getY() {	
+		return y;
+	}
+	
+	public Location potentialNextLocation(Direction dir) {
+		int x = this.x;
+		int y = this.y;
+		switch(dir) {
+		case NORTH: y = (y +1);
+		break;
+		case EAST: x = (x +1);
+		break;
+		case SOUTH: y = (y -1);
+		break;
+		case WEST: x = (x -1);
+		break;
+		}
+		Location pLoc = new Location(x, y);
+		return pLoc;
+		
 	}
 	
 	@Override

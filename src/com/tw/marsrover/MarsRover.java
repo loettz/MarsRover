@@ -7,6 +7,21 @@ public class MarsRover {
 	
 	private Direction direction;
 	
+	private Plateau plateau;
+	
+	
+	public MarsRover(Location location, Direction direction, Plateau plateau) {
+		this.location = location;
+		this.direction = direction;
+		this.plateau = plateau;
+		
+	}
+	
+	public int possibleMoves() {
+		return direction.possibleMoves(location, plateau);
+	}
+	
+	
 	public void setLocation(Location l) {
 		this.location = l;
 	}
@@ -31,13 +46,16 @@ public class MarsRover {
 		setDirection(direction.previous());
 	}
 	
+	public boolean isMoveable(Plateau p) {
+		Location l = location.potentialNextLocation(direction);
+		return p.inBounds(l);
+	}
+	
 	public void move() {
-		
-		switch(direction) {
-		case NORTH: // y+1
-		case EAST: //x+1
-		case SOUTH: //y-1
-		case WEST: // x-1
+		if (!(possibleMoves() <= 0) ){
+
+			direction.move(this);
+			
 		}
 
 	}

@@ -11,21 +11,40 @@ public class TestMarsRover {
 	
 	@Test
 	public void testSetRoverAttributes() {
-		MarsRover mr = new MarsRover();
-		Location l = new Location(5, 5);
-		mr.setLocation(l);
-		mr.setDirection(Direction.NORTH);
+		Location l = new Location(0, 0);
+		Plateau p = new Plateau(5, 5);
+		MarsRover mr = new MarsRover(l, Direction.NORTH, p);
 		assertEquals(l, mr.getLocation());
 		assertEquals(Direction.NORTH, mr.getDirection());
+		Location loc = new Location(3, 3);
+		mr.setLocation(loc);
+		assertEquals(loc.getX(), mr.getLocation().getX());
+		mr.setDirection(Direction.WEST);
+		assertEquals(Direction.WEST, mr.getDirection());
 		
+	}
+	@Test
+	public void testSetLocation() {
+		Location loc = new Location(10, 10);
+		assertEquals(10, loc.getX());
+		assertEquals(10, loc.getY());
+		loc.setX(3);
+		assertEquals(3, loc.getX());
+		loc.setY(7);
+		assertEquals(7, loc.getY());
+	}
+	
+	@Test
+	public void testNextAndPreviousDirection() {
+		assertEquals(Direction.EAST, Direction.NORTH.next());
+		assertEquals(Direction.SOUTH, Direction.WEST.previous());
 	}
 	
 	@Test
 	public void testRoverMovements() {
-		MarsRover mr = new MarsRover();
 		Location l = new Location(0, 0);
-		mr.setLocation(l);
-		mr.setDirection(Direction.EAST);
+		Plateau p = new Plateau(5, 5);
+		MarsRover mr = new MarsRover(l, Direction.EAST, p);
 		mr.turnLeft();
 		mr.turnLeft();
 		mr.turnLeft();
@@ -33,6 +52,9 @@ public class TestMarsRover {
 		mr.turnRight();
 		mr.turnRight();
 		assertEquals(Direction.NORTH, mr.getDirection());
+		mr.move();
+		Location newLoc = new Location(0, 1);
+		assertEquals(newLoc.getY(),mr.getLocation().getY());
 	}
 	
 	@Test 
@@ -42,4 +64,16 @@ public class TestMarsRover {
 		assertEquals(l, p.getUpperRightCoordinates());
 		
 	}
+	
+	@Test
+	public void testIsRoverMoveable() {
+		Location loc = new Location(0,0);
+		Plateau p = new Plateau(5, 5);
+		MarsRover mr = new MarsRover(loc, Direction.EAST, p);
+		Location l = mr.getLocation();
+		Location newl = l.potentialNextLocation(mr.getDirection());
+		assertEquals(p.inBounds(newl), mr.isMoveable(p));
+		
+	}
+
 }

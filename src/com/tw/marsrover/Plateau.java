@@ -11,9 +11,24 @@ public class Plateau {
 		this.upperRightY = upperRightY;
 	}
 	
+	public int getUpperRightX() {
+		return upperRightX;
+	}
+	
+	public int getUpperRightY() {
+		return upperRightY;
+	}
+	
 	public Location getUpperRightCoordinates() {
 		Location upperRightCoordinates = new Location(upperRightX, upperRightY);
 		return upperRightCoordinates;
+	}
+	
+	public boolean inBounds(Location l) {
+		if (l.getX() < 0 || l.getX() > this.upperRightX) return false;
+		if (l.getY() < 0 || l.getY() > this.upperRightY) return false;
+		return true;
+		
 	}
 
 }
