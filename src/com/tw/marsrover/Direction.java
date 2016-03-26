@@ -8,7 +8,6 @@ public enum Direction {
 	NORTH {
 		@Override
 		public int possibleMoves(Location l, Plateau p) {
-			
 			return p.getUpperRightY() - l.getY();
 			
 		} 
@@ -23,7 +22,6 @@ public enum Direction {
 	}, EAST {
 		@Override
 		public int possibleMoves(Location l, Plateau p) {
-			
 			return p.getUpperRightX() - l.getX();
 		}
 		@Override
@@ -36,7 +34,6 @@ public enum Direction {
 	}, SOUTH {
 		@Override
 		public int possibleMoves(Location l, Plateau p) {
-			
 			return l.getY();
 		}
 		
@@ -50,7 +47,6 @@ public enum Direction {
 	}, WEST {
 		@Override
 		public int possibleMoves(Location l, Plateau p) {
-			
 			return l.getX();
 		}
 		

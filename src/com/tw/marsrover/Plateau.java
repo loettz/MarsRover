@@ -24,4 +24,6 @@ public class Plateau {
 		return upperRightCoordinates;
 	}
 	
+	//TODO array mit belegten locations
+	
 }
