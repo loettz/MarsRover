@@ -5,7 +5,7 @@ public enum Direction {
 	
 	
 	
-	NORTH {
+	NORTH("N") {
 		@Override
 		public int possibleMoves(Location l, Plateau p) {
 			return p.getUpperRightY() - l.getY();
@@ -19,7 +19,7 @@ public enum Direction {
 			mr.setLocation(newLocation);
 		}
 		
-	}, EAST {
+	}, EAST("E") {
 		@Override
 		public int possibleMoves(Location l, Plateau p) {
 			return p.getUpperRightX() - l.getX();
@@ -31,7 +31,7 @@ public enum Direction {
 			mr.setLocation(newLocation);
 		}
 		
-	}, SOUTH {
+	}, SOUTH("S") {
 		@Override
 		public int possibleMoves(Location l, Plateau p) {
 			return l.getY();
@@ -40,11 +40,11 @@ public enum Direction {
 		@Override
 		public void move(MarsRover mr) {
 			Location currentLocation = mr.getLocation();
-			Location newLocation = new Location (currentLocation.getX(), currentLocation.getY() + 1);
+			Location newLocation = new Location (currentLocation.getX(), currentLocation.getY() - 1);
 			mr.setLocation(newLocation);
 		}
 		
-	}, WEST {
+	}, WEST("W") {
 		@Override
 		public int possibleMoves(Location l, Plateau p) {
 			return l.getX();
@@ -58,9 +58,23 @@ public enum Direction {
 		}
 		
 	};
+	
+	private String s;
 
+	private Direction(String s) {
+		this.s = s;
+	}
 		
 	private static Direction[] vals = values();
+	
+	public static Direction getByString(String dirString) {
+		for (Direction d : vals) {
+			if (dirString.equals(d.s)) {
+				return d;
+			}
+		}
+		return null;
+	}
 
 	public Direction next() {
     	return vals[(this.ordinal() +1)  % vals.length];
@@ -70,12 +84,13 @@ public enum Direction {
     	return vals[(this.ordinal()-1 + vals.length) % vals.length];
     }
     
-    public int possibleMoves(Location l, Plateau p) {
-		return 0;
+    public abstract int possibleMoves(Location l, Plateau p);
 
-	}
-	public void move(MarsRover mr) {
-		
+	public abstract void move(MarsRover mr);
+
+	@Override
+	public String toString() {
+		return s;
 	}
 }
 

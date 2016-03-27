@@ -77,6 +77,11 @@ public class TestMarsRover {
 	
 	@Test
 	public void testParseInput() {
+		ReadInput ri = new ReadInput(TestMarsRover.class.getResource("Test_Input.txt").toString().substring(5));
+		RoverDataParser rdp = new RoverDataParser(ri.openFile());
+		Plateau expectedP = new Plateau(5, 5);
+		assertEquals(expectedP.getUpperRightCoordinates(), rdp.generatePlateau().getUpperRightCoordinates());
+		assertEquals(2, rdp.generateRoverList(expectedP).size());
 		
 	}
 	
