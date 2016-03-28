@@ -27,10 +27,10 @@ private String path;
 		br.close(); 
 		return textData;
 		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Warning: File could not be found!");
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
+			System.out.println("Warning: A problem has occured during the file-reading process!");
 			e.printStackTrace();
 		}
 		return null;

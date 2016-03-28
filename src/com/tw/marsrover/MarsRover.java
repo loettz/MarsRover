@@ -61,11 +61,8 @@ public class MarsRover {
 	
 	public void move() {
 		if (!(possibleMoves() <= 0) ){
-
 			direction.move(this);
-			
 		}
-
 	}
 	
 	public void executeMotions() {
@@ -82,7 +79,7 @@ public class MarsRover {
 	
 	@Override
 	public String toString() {
-		return "" + location.getX() + " " + location.getY() + " "+ direction;
+		return location.getX() + " " + location.getY() + " " + direction;
 	}
 
 }
