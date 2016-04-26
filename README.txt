@@ -9,6 +9,14 @@ as soon as you run the code the console will ask for a path to get the input dat
 (A textfile with the test input is available in the test folder.)
 The output will be displayed in the console.
 
+Input: "The first line of input is the upper-right coordinates of the plateau, 
+the lower-left coordinates are assumed to be 0,0.
+The rest of the input is information pertaining to the rovers that have been deployed. 
+Each rover has two lines of input. The first line gives the rover's position, 
+and the second line is a series of instructions telling the rover how to explore the plateau. 
+The position is made up of two integers and a letter separated by spaces, corresponding 
+to the x and y co-ordinates and the rover's orientation."
+
 EXPLANATION:
 
 For the Mars Rover Scenario there is a Plateau class and a MarsRover class.
